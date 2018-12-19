@@ -129,8 +129,9 @@ module Make(RuleT : AbstractRule) = struct
         | Mul ->
           Poly.mult (texpr0_to_poly env expr1) (texpr0_to_poly env expr2)
         | Div
-        | Mod ->
-          raise (Invalid_argument "Div/mod operations not supported.")
+        | Mod 
+        | Pow ->
+          raise (Invalid_argument "Div/mod/pow operations not supported.")
       )
 
   let tcons0_to_pc env cons =
